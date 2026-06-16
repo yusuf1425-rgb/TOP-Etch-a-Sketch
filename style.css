@@ -1,0 +1,20 @@
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 400px;
+}
+
+.cells {
+    height: 100px;
+    width: 100px;
+    outline: solid 2px black;
+    background-color: lightgray;
+}
