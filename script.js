@@ -40,9 +40,18 @@ function changeCellColor(){
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
         cell.addEventListener("mouseover", () => {
-            cell.style.backgroundColor = "black";
+            cell.style.backgroundColor = getRandomColor();
         });
     }); 
+}
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 playEtchASketch();
