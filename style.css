@@ -12,7 +12,7 @@
     width: 900px;
 }
 
-.cells {
+.cell {
     outline: solid 2px black;
     background-color: lightgray;
 }
