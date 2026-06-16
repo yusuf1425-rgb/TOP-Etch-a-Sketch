@@ -3,25 +3,47 @@ const container = document.querySelector("#container");
 const grid = document.createElement("div");
 grid.classList.add("grid");
 
-const gridValue = 64;
-const numOfCells = gridValue * gridValue;
+const gridSizeButton = document.querySelector("#grid-size");
 
-for(let i = 1; i <= numOfCells; i++){
-    const cell = document.createElement("div");
-    cell.classList.add("cell")
-
-    cell.style.width = `${900/ gridValue}px`;
-    cell.style.height = `${900 / gridValue}px`;
-
-    grid.appendChild(cell);
-}
-container.appendChild(grid);
-
-const cells = document.querySelectorAll(".cell");
-cells.forEach((cell) => {
-    cell.addEventListener("mouseover", () => {
-        cell.style.backgroundColor = "black";
+function changeGridSize(){
+    gridSizeButton.addEventListener("click", () => {
+        const gridSize = prompt("Enter new size:");
+        if (gridSize < 16 || gridSize > 100){
+            alert("Please enter a value between 16 and 100")
+        } else {
+        grid.innerHTML = "";
+        playEtchASketch(gridSize)
+        }
     });
-}); 
+}
 
+function playEtchASketch(gridSize = 16){
+    createGrid(gridSize);
+    container.appendChild(grid);
+    changeCellColor();
+}
 
+function createGrid(gridSize){
+        const numOfCells = gridSize * gridSize;
+        for(let i = 1; i <= numOfCells; i++){
+        const cell = document.createElement("div");
+        cell.classList.add("cell")
+
+        cell.style.width = `${800/ gridSize}px`;
+        cell.style.height = `${800 / gridSize}px`;
+
+        grid.appendChild(cell);
+    }
+}
+
+function changeCellColor(){
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.addEventListener("mouseover", () => {
+            cell.style.backgroundColor = "black";
+        });
+    }); 
+}
+
+playEtchASketch();
+changeGridSize();
