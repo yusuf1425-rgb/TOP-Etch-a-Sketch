@@ -8,13 +8,11 @@
 .grid {
     display: flex;
     flex-wrap: wrap;
-    height: 400px;
-    width: 400px;
+    height: 900px;
+    width: 900px;
 }
 
 .cells {
-    height: 100px;
-    width: 100px;
     outline: solid 2px black;
     background-color: lightgray;
 }
